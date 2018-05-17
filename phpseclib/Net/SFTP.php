@@ -425,6 +425,8 @@ class SFTP extends SSH2
             return false;
         }
 
+        sleep(15);  // Hack required due to Channel Advisor implementation
+
         $this->channel_status[self::CHANNEL] = NET_SSH2_MSG_CHANNEL_OPEN;
 
         $response = $this->get_channel_packet(self::CHANNEL, true);
